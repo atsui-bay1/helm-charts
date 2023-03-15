@@ -82,7 +82,7 @@ containers:
       - name: data
         mountPath: "{{ .Values.config.data_dir | default "/var/lib/observability-pipelines-worker" }}"
       - name: config
-        mountPath: "/etc/opw/"
+        mountPath: "/etc/observability-pipelines-worker/"
         readOnly: true
 {{- if .Values.extraVolumeMounts }}
 {{ toYaml .Values.extraVolumeMounts | indent 6 }}
