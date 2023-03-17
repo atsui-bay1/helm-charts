@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.2.0
+
+* Update `run` subcommand to use new `--pipelines-config` argument
+* `1.2.0` release
+
 ## 1.1.1
 
 * Update `args` to use the `run` subcommand
