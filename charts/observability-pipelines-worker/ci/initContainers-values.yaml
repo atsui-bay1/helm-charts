@@ -1,3 +1,8 @@
+args:
+  - run
+  - --skip-key-validation
+  - --pipelines-config
+  - "/etc/observability-pipelines-worker/pipelines.yaml"
 config:
   data_dir: "/var/lib/opw/"
   sources:

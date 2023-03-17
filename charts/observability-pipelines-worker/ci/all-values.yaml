@@ -1,3 +1,9 @@
+args:
+  - run
+  - --skip-key-validation
+  - --pipelines-config
+  - "/etc/observability-pipelines-worker/pipelines.yaml"
+
 podSecurityContext:
   fsGroup: 2000
 
