@@ -1,7 +1,7 @@
 args:
   - run
   - --skip-key-validation
-  - --pipelines-config
+  - --pipeline-config
   - "/etc/observability-pipelines-worker/pipelines.yaml"
 
 podSecurityContext:
