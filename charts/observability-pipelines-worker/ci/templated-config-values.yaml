@@ -4,7 +4,6 @@ args:
   - --pipeline-config
   - "/etc/observability-pipelines-worker/pipelines.yaml"
 config:
-  data_dir: /data
   sources:
     demo_logs:
       type: demo_logs

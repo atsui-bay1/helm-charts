@@ -4,7 +4,6 @@ args:
   - --pipeline-config
   - "/etc/observability-pipelines-worker/pipelines.yaml"
 config:
-  data_dir: "/var/lib/opw/"
   sources:
     datadog_agents:
       type: datadog_agent
