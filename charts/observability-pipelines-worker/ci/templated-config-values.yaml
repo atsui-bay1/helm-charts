@@ -3,7 +3,7 @@ args:
   - --skip-key-validation
   - --pipeline-config
   - "/etc/observability-pipelines-worker/pipelines.yaml"
-config:
+pipelineConfig:
   sources:
     demo_logs:
       type: demo_logs

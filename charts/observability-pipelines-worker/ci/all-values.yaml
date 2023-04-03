@@ -55,7 +55,7 @@ topologySpreadConstraints:
     topologyKey: topology.kubernetes.io/zone
     whenUnsatisfiable: ScheduleAnyway
 
-config:
+pipelineConfig:
   sources:
     datadog_agents:
       address: 0.0.0.0:8282

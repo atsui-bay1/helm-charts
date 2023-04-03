@@ -3,7 +3,7 @@ args:
   - --skip-key-validation
   - --pipeline-config
   - "/etc/observability-pipelines-worker/pipelines.yaml"
-config:
+pipelineConfig:
   sources:
     datadog_agents:
       address: 0.0.0.0:8282
