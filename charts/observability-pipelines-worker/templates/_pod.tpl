@@ -54,6 +54,8 @@ containers:
             key: config-key
       - name: DD_SITE
         value: {{ .Values.datadog.site | quote }}
+      - name: DD_ENDPOINT
+        value: {{ .Values.datadog.endpoint | quote }}
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 6 }}
 {{- end }}

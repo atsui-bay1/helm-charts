@@ -31,6 +31,8 @@ datadog:
   ## Set to 'ddog-gov.com' to send data to the US1-FED site.
   # datadog.site -- The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to.
   site: datadoghq.com
+  # datadog.endpoint -- The full [endpoint](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
+  endpoint: ""
 
 image:
   # image.name -- Specify the image name to use (relative to `image.repository`).
