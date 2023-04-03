@@ -1,6 +1,6 @@
 # Observability Pipelines Worker
 
-![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
+![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1](https://img.shields.io/badge/AppVersion-1-informational?style=flat-square)
 
 ## How to use Datadog Helm repository
 
@@ -81,7 +81,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Configure [affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity). |
-| args | list | `["run","--pipelines-config","/etc/observability-pipelines-worker/pipelines.yaml"]` | Override default image arguments. |
+| args | list | `["run","--pipeline-config","/etc/observability-pipelines-worker/pipeline.yaml"]` | Override default image arguments. |
 | autoscaling.behavior | object | `{}` | Configure separate scale-up and scale-down behaviors. |
 | autoscaling.enabled | bool | `false` | If **true**, create a [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/). |
 | autoscaling.maxReplicas | int | `10` | Specify the maximum number of replicas. |
@@ -90,12 +90,13 @@ The command removes all the Kubernetes components associated with the chart and 
 | autoscaling.targetMemoryUtilizationPercentage | int | `nil` | Specify the target memory utilization. |
 | command | list | `[]` | Override default image command. |
 | commonLabels | object | `{}` | Labels to apply to all resources. |
-| config | object | `{}` | This section supports using Helm templates to populate dynamic values. See Observability Pipelines' [configuration documentation](https://docs.datadoghq.com/observability_pipelines/reference/) for all options. |
 | containerPorts | list | `[]` | Manually define ContainerPort array, overriding automated generation of ContainerPorts. |
 | datadog.apiKey | string | `nil` | Specify your Datadog API key. |
 | datadog.apiKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your API key instead of creating a new one. The value must be stored under the `api-key`. |
 | datadog.configKey | string | `nil` |  |
 | datadog.configKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your configuration key instead of creating a new one. The value must be stored under the `config-key`. |
+| datadog.data_dir | string | `"/var/lib/observability-pipelines-worker"` | The data directory for OPW to store runtime data in. |
+| datadog.endpoint | string | `""` | The full [endpoint](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting. |
 | datadog.site | string | `"datadoghq.com"` | The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to. |
 | dnsConfig | object | `{}` | Specify the [dnsConfig](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config). |
 | dnsPolicy | string | `"ClusterFirst"` | Specify the [dnsPolicy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy). |
@@ -128,6 +129,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | persistence.selector | object | `{}` | Specify the selectors for PersistentVolumeClaims. |
 | persistence.size | string | `"10Gi"` | Specify the size of PersistentVolumeClaims. |
 | persistence.storageClassName | string | `nil` | Specify the storageClassName for PersistentVolumeClaims. |
+| pipelineConfig | object | `{}` | This section supports using Helm templates to populate dynamic values. See Observability Pipelines' [configuration documentation](https://docs.datadoghq.com/observability_pipelines/reference/) for all options. |
 | podAnnotations | object | `{}` | Set annotations on Pods. |
 | podDisruptionBudget.enabled | bool | `false` | If **true**, create a [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/). |
 | podDisruptionBudget.maxUnavailable | int | `nil` | Specify the number of Pods that can be unavailable after an eviction. |
