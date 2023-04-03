@@ -19,7 +19,7 @@ spec:
   ports:
 {{- if .Values.service.ports }}
 {{ toYaml .Values.service.ports | indent 4 }}
-{{- else if .Values.config }}
+{{- else if .Values.pipelineConfig }}
 {{- if (include "opw.ports" .) }}
 {{- include "opw.ports" . | indent 4 }}
 {{- else}}

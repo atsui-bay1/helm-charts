@@ -63,7 +63,7 @@ containers:
     ports:
 {{- if .Values.containerPorts }}
 {{ toYaml .Values.containerPorts | indent 6 }}
-{{- else if .Values.config }}
+{{- else if .Values.pipelineConfig }}
 {{- include "opw.containerPorts" . | indent 6 }}
 {{- end }}
 {{- if .Values.livenessProbe }}
@@ -80,7 +80,7 @@ containers:
 {{- end }}
     volumeMounts:
       - name: data
-        mountPath: "{{ .Values.config.data_dir | default "/var/lib/observability-pipelines-worker" }}"
+        mountPath: "{{ .Values.pipelineConfig.data_dir | default "/var/lib/observability-pipelines-worker" }}"
       - name: config
         mountPath: "/etc/observability-pipelines-worker/"
         readOnly: true

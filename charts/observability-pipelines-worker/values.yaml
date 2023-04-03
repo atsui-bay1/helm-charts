@@ -248,10 +248,9 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-# config -- This section supports using Helm templates to populate dynamic values. See Observability Pipelines'
+# pipelineConfig -- This section supports using Helm templates to populate dynamic values. See Observability Pipelines'
 # [configuration documentation](https://docs.datadoghq.com/observability_pipelines/reference/) for all options.
-config: {}
-#  data_dir: "/var/lib/observability-pipelines-worker"
+pipelineConfig: {}
 #  sources:
 #    datadog_agents:
 #      type: datadog_agent
