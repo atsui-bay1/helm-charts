@@ -378,6 +378,10 @@ datadog:
   # datadog.leaderLeaseDuration -- Set the lease time for leader election in second
   leaderLeaseDuration:  # 60
 
+  remoteConfiguration:
+    # datadog.remoteConfiguration.enabled -- Set to true to enable remote configuration.
+    enabled: false
+
   ## Enable logs agent and provide custom configs
   logs:
     # datadog.logs.enabled -- Enables this to activate Datadog Agent log collection
@@ -677,7 +681,7 @@ datadog:
 
       activityDump:
         # datadog.securityAgent.runtime.activityDump.enabled -- Set to true to enable the collection of CWS activity dumps
-        enabled: false
+        enabled: true
 
         # datadog.securityAgent.runtime.activityDump.tracedCgroupsCount -- Set to the number of containers that should be traced concurrently
         tracedCgroupsCount: 3
@@ -854,6 +858,9 @@ clusterAgent:
     # clusterAgent.rbac.create -- If true, create & use RBAC resources
     create: true
 
+    # clusterAgent.rbac.flareAdditionalPermissions -- If true, add Secrets and Configmaps get/list permissions to retrieve user Datadog Helm values from Cluster Agent namespace
+    flareAdditionalPermissions: true
+
     # clusterAgent.rbac.serviceAccountName -- Specify a preexisting ServiceAccount to use if clusterAgent.rbac.create is false
     serviceAccountName: default
 
@@ -933,7 +940,10 @@ clusterAgent:
 
     # clusterAgent.admissionController.configMode -- The kind of configuration to be injected, it can be "hostip", "service", or "socket".
 
-    ## If clusterAgent.admissionController.configMode is not set, the Admission Controller defaults to hostip.
+    ## If clusterAgent.admissionController.configMode is not set:
+    ##   * and datadog.apm.socketEnabled is true, the Admission Controller uses socket.
+    ##   * and datadog.apm.portEnabled is true, the Admission Controller uses hostip.
+    ##   * Otherwise, the Admission Controller defaults to hostip.
     ## Note: "service" mode relies on the internal traffic service to target the agent running on the local node (requires Kubernetes v1.22+).
     ## ref: https://docs.datadoghq.com/agent/cluster_agent/admission_controller/#configure-apm-and-dogstatsd-communication-mode
     configMode:  # "hostip", "socket" or "service"
@@ -1796,6 +1806,10 @@ datadog-crds:
     datadogMetrics: true
 
 kube-state-metrics:
+  # kube-state-metrics.image.repository -- Default kube-state-metrics image repository.
+  image:
+    repository: registry.k8s.io/kube-state-metrics/kube-state-metrics
+
   rbac:
     # kube-state-metrics.rbac.create -- If true, create & use RBAC resources
     create: true

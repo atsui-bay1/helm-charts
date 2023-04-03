@@ -53,7 +53,9 @@ nameOverride: ""
 fullnameOverride: ""
 # logLevel -- Set Datadog Operator log level (debug, info, error, panic, fatal)
 logLevel: "info"
-# supportExtendedDaemonset -- If true, supports using ExtendedDeamonSet CRD
+# maximumGoroutines -- Override default gouroutines threshold for the health check failure.
+maximumGoroutines:
+# supportExtendedDaemonset -- If true, supports using ExtendedDaemonSet CRD
 supportExtendedDaemonset: "false"
 # metricsPort -- Port used for OpenMetrics endpoint
 metricsPort: 8383
@@ -62,6 +64,9 @@ secretBackend:
   command: ""
   # secretBackend.arguments -- Specifies the space-separated arguments passed to the command that implements the secret backend api
   arguments: ""
+datadogAgent:
+  # datadogAgent.enabled -- Enables Datadog Agetn controller
+  enabled: true
 datadogMonitor:
   # datadogMonitor.enabled -- Enables the Datadog Monitor controller
   enabled: false
@@ -98,7 +103,7 @@ affinity: {}
 # installCRDs -- Set to true to deploy the Datadog's CRDs
 installCRDs: true
 
-datadog-crds:
+datadogCRDs:
   crds:
     # datadog-crds.crds.datadogAgents -- Set to true to deploy the DatadogAgents CRD
     datadogAgents: true
@@ -108,13 +113,12 @@ datadog-crds:
     datadogMonitors: true
   migration:
     datadogAgents:
+      conversionWebhook:
+        enabled: false
+        name: datadog-operator-webhook-service
+        namespace: default
+      useCertManager: false
       version: "v1alpha1"
-
-# webhook -- configure webhook servers
-webhook:
-  ## Use the conversion webhook server when multiple versions of objects managed by the Datadog Operator are served.
-  conversion:
-    enabled: false
 
 # podAnnotations -- Allows setting additional annotations for Datadog Operator PODs
 podAnnotations: {}
@@ -124,7 +128,7 @@ podLabels: {}
 # collectOperatorMetrics -- Configures an openmetrics check to collect operator metrics
 collectOperatorMetrics: true
 
-# watchNamespaces -- Restrics the Operator to watch its managed resources on specific namespaces
+# watchNamespaces -- Restricts the Operator to watch its managed resources on specific namespaces
 watchNamespaces: []
 # example: watch only two namespaces:
 # watchNamespaces:

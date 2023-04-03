@@ -1,10 +1,40 @@
 # Datadog changelog
 
-# 3.20.1
+## 3.25.0
 
-* Fix command args in linux init container to prevent blocking deployment in GKE Autopilot.  
+* Automatically collect Security Profiles when CWS is enabled.
 
-# 3.20.0
+## 3.24.0
+
+* Move `kube-state-metrics` default image registry from k8s.gcr.io to registry.k8s.io.
+
+## 3.23.0
+
+* Injects additional environment variables in the Cluster Agent
+* Add `clusterAgent.rbac.flareAdditionalPermissions` parameter to enable user Helm values retrieval in DCA flare (`true` by default)
+
+## 3.22.0
+
+* Auto-configure `clusterAgent.admissionController.configMode` based on `datadog.apm.socketEnabled|portEnabled`.
+
+## 3.21.0
+
+* Add `datadog.remoteConfiguration.enabled` parameter to enable remote configuration.
+
+## 3.20.3
+
+* Fix command script in linux init container to prevent blocking deployment in GKE Autopilot on Rapid release channel.
+* Only mount DogStatsD socket in non-Autopilot environments.
+
+## 3.20.2
+
+* Fix R/W volume mounts for CRI on Windows
+
+## 3.20.1
+
+* Fix command args in linux init container to prevent blocking deployment in GKE Autopilot.
+
+## 3.20.0
 
 * Enable CWS network detections by default.
 
@@ -12,12 +42,12 @@
 
 * Fix R/W volume mounts in init containers on Windows
 
-# 3.19.1
+## 3.19.1
 
 * Mount emptyDir volumes in `/etc/datadog-agent` and `/tmp` to allow the cluster-agent to write files in those
   locations with read-only root filesystem.
 
-# 3.19.0
+## 3.19.0
 
 * Declare `readOnly` in volumeMounts.
 

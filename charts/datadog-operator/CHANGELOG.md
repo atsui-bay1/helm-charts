@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.1
+
+* Add configuration for new Operator parameters `maximumGoroutines` and `datadogAgentEnabled`.
+
+## 0.10.0
+
+* Add ability to use the conversion webhook
+* Add dependency on the cert manager to manage the certificates of the conversion webhook
+* Note that the option to enable the various CRDs has changed from `datadog-crds` to `datadogCRDs`.
+
 ## 0.9.2
 
 * Updating CRD dependency to DatadogMonitors and DatadogAgent.
