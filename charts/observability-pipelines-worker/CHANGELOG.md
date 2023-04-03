@@ -4,7 +4,7 @@
 
 * Update `run` subcommand to use new `--pipeline-config` argument
 * Rename `config` to `pipelineConfig` in values
-* Add `endpoint` and `data_dir` values
+* Add `datadog.endpoint` and `datadog.data_dir` values
 * `1.2.0` release
 
 ## 1.1.1
