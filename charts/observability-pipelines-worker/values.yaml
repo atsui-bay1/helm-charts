@@ -33,6 +33,8 @@ datadog:
   site: datadoghq.com
   # datadog.endpoint -- The full [endpoint](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
   endpoint: ""
+  # datadog.data_dir -- The data directory for OPW to store runtime data in.
+  data_dir: "/var/lib/observability-pipelines-worker"
 
 image:
   # image.name -- Specify the image name to use (relative to `image.repository`).

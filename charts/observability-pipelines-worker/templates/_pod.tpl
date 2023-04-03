@@ -56,6 +56,8 @@ containers:
         value: {{ .Values.datadog.site | quote }}
       - name: DD_ENDPOINT
         value: {{ .Values.datadog.endpoint | quote }}
+      - name: DD_OP_DATA_DIR
+        value: {{ .Values.datadog.data_dir | quote }}
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 6 }}
 {{- end }}
@@ -82,7 +84,7 @@ containers:
 {{- end }}
     volumeMounts:
       - name: data
-        mountPath: "{{ .Values.pipelineConfig.data_dir | default "/var/lib/observability-pipelines-worker" }}"
+        mountPath: "{{ .Values.datadog.data_dir | default "/var/lib/observability-pipelines-worker" }}"
       - name: config
         mountPath: "/etc/observability-pipelines-worker/"
         readOnly: true
