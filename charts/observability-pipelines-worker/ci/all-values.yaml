@@ -48,9 +48,8 @@ affinity:
 topologySpreadConstraints:
   - labelSelector:
       matchLabels:
-        app.kubernetes.io/name: vector
-        app.kubernetes.io/instance: vector
-        app.kubernetes.io/component: Aggregator
+        app.kubernetes.io/name: observability-pipelines-worker
+        app.kubernetes.io/instance: release-name
     maxSkew: 1
     topologyKey: topology.kubernetes.io/zone
     whenUnsatisfiable: ScheduleAnyway
@@ -78,9 +77,6 @@ pipelineConfig:
       inputs:
         - datadog_agents.traces
       default_api_key: ${DD_API_KEY}
-
-service:
-  enabled: true
 
 persistence:
   enabled: true

@@ -19,7 +19,3 @@ pipelineConfig:
       encoding:
         codec: json
       region: us-east-1
-service:
-  enabled: false
-serviceHeadless:
-  enabled: false
