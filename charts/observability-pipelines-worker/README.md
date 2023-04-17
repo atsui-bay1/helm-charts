@@ -20,15 +20,15 @@ To install the chart with the release name `<RELEASE_NAME>` run:
 ```bash
 helm install --name <RELEASE_NAME> \
   --set datadog.apiKey=<DD_API_KEY> \
-  --set datadog.configKey=<DD_OP_CONFIG_KEY> \
+  --set datadog.pipelineID=<DD_OP_PIPELINE_ID> \
   datadog/observability-pipelines-worker
 ```
 
-By default, this chart creates secrets for your Observability Pipelines API and configuration keys. However, you can use
-manually created Secrets by setting the `datadog.apiKeyExistingSecret` and/or `datadog.appKeyExistingSecret` values
+By default, this chart creates secrets for your Observability Pipelines API key and pipeline ID. However, you can use
+manually created Secrets by setting the `datadog.apiKeyExistingSecret` and/or `datadog.pipelineIDExistingSecret` values
 (see [Creating a Secret](#create-and-provide-a-secret-that-contains-your-datadog-api-and-configuration-keys), below).
 
-**Note:** When creating the Secret(s), be sure to name the key fields `api-key` and `config-key`.
+**Note:** When creating the Secret(s), be sure to name the key fields `api-key` and `pipeline-id`.
 
 After a few minutes, you should see your new pipeline active in Datadog.
 
@@ -37,12 +37,12 @@ After a few minutes, you should see your new pipeline active in Datadog.
 ```bash
 helm install --name <RELEASE_NAME> \
     --set datadog.apiKey=<DD_API_KEY> \
-    --set datadog.configKey=<DD_OP_CONFIG_KEY> \
+    --set datadog.pipelineID=<DD_OP_PIPELINE_ID> \
     --set datadog.site=<DATADOG_SITE> \
     datadog/observability-pipelines-worker
 ```
 
-#### Create and provide a Secret that contains your Datadog API and Configuration Keys
+#### Create and provide a Secret that contains your Datadog API and Pipeline ID
 
 To create a Secret that contains your Datadog API key, replace the `<DATADOG_API_KEY>` below with the API key for your
 organization. This Secret is used in the manifest to deploy the Observability Pipelines Worker.
@@ -51,7 +51,7 @@ organization. This Secret is used in the manifest to deploy the Observability Pi
 export DATADOG_SECRET_NAME=datadog-secrets
 kubectl create secret generic $DATADOG_SECRET_NAME \
     --from-literal api-key="<DD_API_KEY>" \
-    --from-literal config-key="<DD_OP_CONFIG_KEY>"
+    --from-literal pipeline-id="<DD_OP_PIPELINE_ID>"
 ```
 
 **Note**: This creates a Secret in the **default** Namespace. If you are using a custom Namespace, update the Namespace
@@ -62,7 +62,7 @@ Now, the installation command contains a reference to the Secret.
 ```bash
 helm install --name <RELEASE_NAME> \
   --set datadog.apiKeyExistingSecret=$DATADOG_SECRET_NAME \
-  --set datadog.configKeyExistingSecret=$DATADOG_SECRET_NAME \
+  --set datadog.pipelineIDExistingSecret=$DATADOG_SECRET_NAME \
   datadog/observability-pipelines-worker
 ```
 
