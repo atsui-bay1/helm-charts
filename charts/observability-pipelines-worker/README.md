@@ -95,8 +95,10 @@ The command removes all the Kubernetes components associated with the chart and 
 | datadog.apiKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your API key instead of creating a new one. The value must be stored under the `api-key`. |
 | datadog.configKey | string | `nil` |  |
 | datadog.configKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your configuration key instead of creating a new one. The value must be stored under the `config-key`. |
-| datadog.data_dir | string | `"/var/lib/observability-pipelines-worker"` | The data directory for OPW to store runtime data in. |
-| datadog.endpoint | string | `""` | The full [endpoint](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting. |
+| datadog.dataDir | string | `"/var/lib/observability-pipelines-worker"` | The data directory for OPW to store runtime data in. |
+| datadog.ddURL | string | `""` | The full [URL](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting. |
+| datadog.pipelineID | string | `nil` | Specify your Datadog Observability Pipelines pipeline ID |
+| datadog.pipelineIDExistingSecret | string | `""` | Specify a preexisting Secret that has your pipeline ID instead of creating a new one. The value must be stored under the `pipeline-id`. |
 | datadog.site | string | `"datadoghq.com"` | The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to. |
 | dnsConfig | object | `{}` | Specify the [dnsConfig](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config). |
 | dnsPolicy | string | `"ClusterFirst"` | Specify the [dnsPolicy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy). |

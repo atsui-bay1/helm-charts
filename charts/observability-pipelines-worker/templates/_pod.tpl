@@ -52,12 +52,17 @@ containers:
           secretKeyRef:
             name: {{ template "opw.configKeySecretName" . }}
             key: config-key
+      - name: DD_OP_PIPELINE_ID
+        valueFrom:
+          secretKeyRef:
+            name: {{ template "opw.pipelineIDSecretName " . }}
+            key: pipeline-id
       - name: DD_SITE
         value: {{ .Values.datadog.site | quote }}
-      - name: DD_ENDPOINT
-        value: {{ .Values.datadog.endpoint | quote }}
+      - name: DD_URL
+        value: {{ .Values.datadog.ddURL | quote }}
       - name: DD_OP_DATA_DIR
-        value: {{ .Values.datadog.data_dir | quote }}
+        value: {{ .Values.datadog.dataDir | quote }}
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 6 }}
 {{- end }}
@@ -84,7 +89,7 @@ containers:
 {{- end }}
     volumeMounts:
       - name: data
-        mountPath: "{{ .Values.datadog.data_dir | default "/var/lib/observability-pipelines-worker" }}"
+        mountPath: "{{ .Values.datadog.dataDir | default "/var/lib/observability-pipelines-worker" }}"
       {{- if .Values.pipelineConfig }}
       - name: config
         mountPath: "/etc/observability-pipelines-worker/"

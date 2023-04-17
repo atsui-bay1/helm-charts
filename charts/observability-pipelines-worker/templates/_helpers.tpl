@@ -48,6 +48,14 @@ Return the configuration key Secret name to be used based on provided values.
 {{- end -}}
 
 {{/*
+Return the pipeline ID Secret name to be used based on provided values.
+*/}}
+{{- define "opw.pipelineIDSecretName" -}}
+{{- $fullName := printf "%s-pipelineid" (include "opw.fullname" .) -}}
+{{- default $fullName .Values.datadog.pipelineIDExistingSecret | quote -}}
+{{- end -}}
+
+{{/*
 Common template labels.
 */}}
 {{- define "opw.template-labels" -}}

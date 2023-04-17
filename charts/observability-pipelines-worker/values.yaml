@@ -24,6 +24,11 @@ datadog:
   # datadog.configKeyExistingSecret -- Specify a preexisting Secret that has your configuration key instead of
   # creating a new one. The value must be stored under the `config-key`.
   configKeyExistingSecret: ""
+  # datadog.pipelineID -- Specify your Datadog Observability Pipelines pipeline ID
+  pipelineID: # <DD_OP_PIPELINE_ID>
+  # datadog.pipelineIDExistingSecret -- Specify a preexisting Secret that has your pipeline ID instead of
+  # creating a new one. The value must be stored under the `pipeline-id`.
+  pipelineIDExistingSecret: ""
   ## Set to 'datadoghq.com' to send data to the US1 site.
   ## Set to 'datadoghq.eu' to send data to the EU site.
   ## Set to 'us3.datadoghq.com' to send data to the US3 site.
@@ -31,10 +36,10 @@ datadog:
   ## Set to 'ddog-gov.com' to send data to the US1-FED site.
   # datadog.site -- The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to.
   site: datadoghq.com
-  # datadog.endpoint -- The full [endpoint](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
-  endpoint: ""
-  # datadog.data_dir -- The data directory for OPW to store runtime data in.
-  data_dir: "/var/lib/observability-pipelines-worker"
+  # datadog.ddURL -- The full [URL](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
+  ddURL: ""
+  # datadog.dataDir -- The data directory for OPW to store runtime data in.
+  dataDir: "/var/lib/observability-pipelines-worker"
 
 image:
   # image.name -- Specify the image name to use (relative to `image.repository`).
