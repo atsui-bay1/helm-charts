@@ -50,9 +50,9 @@ Return the configuration key Secret name to be used based on provided values.
 {{/*
 Return the pipeline ID Secret name to be used based on provided values.
 */}}
-{{- define "opw.pipelineIDSecretName" -}}
+{{- define "opw.pipelineIdSecretName" -}}
 {{- $fullName := printf "%s-pipelineid" (include "opw.fullname" .) -}}
-{{- default $fullName .Values.datadog.pipelineIDExistingSecret | quote -}}
+{{- default $fullName .Values.datadog.pipelineIdExistingSecret | quote -}}
 {{- end -}}
 
 {{/*

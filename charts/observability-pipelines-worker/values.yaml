@@ -24,11 +24,11 @@ datadog:
   # datadog.configKeyExistingSecret -- Specify a preexisting Secret that has your configuration key instead of
   # creating a new one. The value must be stored under the `config-key`.
   configKeyExistingSecret: ""
-  # datadog.pipelineID -- Specify your Datadog Observability Pipelines pipeline ID
-  pipelineID:  # <DD_OP_PIPELINE_ID>
-  # datadog.pipelineIDExistingSecret -- Specify a preexisting Secret that has your pipeline ID instead of
+  # datadog.pipelineId -- Specify your Datadog Observability Pipelines pipeline ID
+  pipelineId:  # <DD_OP_PIPELINE_ID>
+  # datadog.pipelineIdExistingSecret -- Specify a preexisting Secret that has your pipeline ID instead of
   # creating a new one. The value must be stored under the `pipeline-id`.
-  pipelineIDExistingSecret: ""
+  pipelineIdExistingSecret: ""
   ## Set to 'datadoghq.com' to send data to the US1 site.
   ## Set to 'datadoghq.eu' to send data to the EU site.
   ## Set to 'us3.datadoghq.com' to send data to the US3 site.
