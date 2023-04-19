@@ -2,4 +2,4 @@ args:
   - run
   - --skip-key-validation
   - --pipeline-config
-  - "/etc/observability-pipelines-worker/pipelines.yaml"
+  - "/etc/observability-pipelines-worker/pipeline.yaml"
