@@ -90,11 +90,9 @@ containers:
     volumeMounts:
       - name: data
         mountPath: "{{ .Values.datadog.dataDir | default "/var/lib/observability-pipelines-worker" }}"
-      {{- if .Values.pipelineConfig }}
       - name: config
         mountPath: "/etc/observability-pipelines-worker/"
         readOnly: true
-      {{- end }}
 {{- if .Values.extraVolumeMounts }}
 {{ toYaml .Values.extraVolumeMounts | indent 6 }}
 {{- end }}
@@ -125,13 +123,11 @@ volumes:
   - name: data
     emptyDir: {}
 {{- end }}
-{{- if .Values.pipelineConfig }}
   - name: config
     projected:
       sources:
         - configMap:
             name: {{ template "opw.fullname" . }}
-{{- end }}
 {{- if .Values.extraVolumes }}
 {{ toYaml .Values.extraVolumes | indent 2 }}
 {{- end }}
