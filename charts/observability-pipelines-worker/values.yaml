@@ -25,7 +25,7 @@ datadog:
   # creating a new one. The value must be stored under the `config-key`.
   configKeyExistingSecret: ""
   # datadog.pipelineID -- Specify your Datadog Observability Pipelines pipeline ID
-  pipelineID: # <DD_OP_PIPELINE_ID>
+  pipelineID:  # <DD_OP_PIPELINE_ID>
   # datadog.pipelineIDExistingSecret -- Specify a preexisting Secret that has your pipeline ID instead of
   # creating a new one. The value must be stored under the `pipeline-id`.
   pipelineIDExistingSecret: ""
