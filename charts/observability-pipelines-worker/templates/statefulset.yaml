@@ -22,9 +22,7 @@ spec:
 {{ toYaml .Values.podLabels | indent 8 }}
         {{- end }}
       annotations:
-        {{- if .Values.pipelineConfig }}
         checksum/config: {{ tpl (toYaml .Values.pipelineConfig) . | sha256sum }}
-        {{- end }}
         {{- if .Values.podAnnotations }}
 {{ tpl (toYaml .Values.podAnnotations) . | indent 8 }}
         {{- end }}
