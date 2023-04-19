@@ -1,4 +1,3 @@
-{{- if .Values.pipelineConfig }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,5 +7,8 @@ metadata:
   annotations:
     checksum/config: {{ tpl (toYaml .Values.pipelineConfig) . | sha256sum }}
 data:
+  {{- if .Values.pipelineConfig }}
   pipeline.yaml: | {{ tpl (toYaml .Values.pipelineConfig) . | nindent 4 }}
-{{- end -}}
+  {{- else }}
+{{ fail "A `pipelineConfig` must be specified, see https://docs.datadoghq.com/observability_pipelines/reference for all options" }}
+  {{- end -}}
