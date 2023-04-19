@@ -60,7 +60,7 @@ containers:
       - name: DD_SITE
         value: {{ .Values.datadog.site | quote }}
       - name: DD_URL
-        value: {{ .Values.datadog.ddURL | quote }}
+        value: {{ .Values.datadog.url | quote }}
       - name: DD_OP_DATA_DIR
         value: {{ .Values.datadog.dataDir | quote }}
 {{- if .Values.env }}

@@ -36,8 +36,8 @@ datadog:
   ## Set to 'ddog-gov.com' to send data to the US1-FED site.
   # datadog.site -- The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to.
   site: datadoghq.com
-  # datadog.ddURL -- The full [URL](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
-  ddURL: ""
+  # datadog.url -- The full [URL](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting.
+  url: ""
   # datadog.dataDir -- The data directory for OPW to store runtime data in.
   dataDir: "/var/lib/observability-pipelines-worker"
 
