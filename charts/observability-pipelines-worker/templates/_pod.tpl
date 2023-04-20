@@ -53,10 +53,7 @@ containers:
             name: {{ template "opw.configKeySecretName" . }}
             key: config-key
       - name: DD_OP_PIPELINE_ID
-        valueFrom:
-          secretKeyRef:
-            name: {{ template "opw.pipelineIdSecretName" . }}
-            key: pipeline-id
+        value: {{ .Values.datadog.pipelineId | quote }}
       - name: DD_SITE
         value: {{ .Values.datadog.site | quote }}
       - name: DD_URL

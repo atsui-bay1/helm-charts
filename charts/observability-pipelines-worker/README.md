@@ -24,11 +24,11 @@ helm install --name <RELEASE_NAME> \
   datadog/observability-pipelines-worker
 ```
 
-By default, this chart creates secrets for your Observability Pipelines API key and pipeline ID. However, you can use
-manually created Secrets by setting the `datadog.apiKeyExistingSecret` and/or `datadog.pipelineIdExistingSecret` values
-(see [Creating a Secret](#create-and-provide-a-secret-that-contains-your-datadog-api-and-configuration-keys), below).
+By default, this chart creates secrets for your Observability Pipelines API key. However, you can use
+manually created Secrets by setting the `datadog.apiKeyExistingSecret` values
+(see [Creating a Secret](#create-and-provide-a-secret-that-contains-your-datadog-api-key), below).
 
-**Note:** When creating the Secret(s), be sure to name the key fields `api-key` and `pipeline-id`.
+**Note:** When creating the Secret(s), be sure to name the key fields `api-key`.
 
 After a few minutes, you should see your new pipeline active in Datadog.
 
@@ -42,7 +42,7 @@ helm install --name <RELEASE_NAME> \
     datadog/observability-pipelines-worker
 ```
 
-#### Create and provide a Secret that contains your Datadog API and Pipeline ID
+#### Create and provide a Secret that contains your Datadog API Key
 
 To create a Secret that contains your Datadog API key, replace the `<DATADOG_API_KEY>` below with the API key for your
 organization. This Secret is used in the manifest to deploy the Observability Pipelines Worker.
@@ -62,7 +62,6 @@ Now, the installation command contains a reference to the Secret.
 ```bash
 helm install --name <RELEASE_NAME> \
   --set datadog.apiKeyExistingSecret=$DATADOG_SECRET_NAME \
-  --set datadog.pipelineIdExistingSecret=$DATADOG_SECRET_NAME \
   datadog/observability-pipelines-worker
 ```
 
@@ -97,7 +96,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | datadog.configKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your configuration key instead of creating a new one. The value must be stored under the `config-key`. |
 | datadog.dataDir | string | `"/var/lib/observability-pipelines-worker"` | The data directory for OPW to store runtime data in. |
 | datadog.pipelineId | string | `nil` | Specify your Datadog Observability Pipelines pipeline ID |
-| datadog.pipelineIdExistingSecret | string | `""` | Specify a preexisting Secret that has your pipeline ID instead of creating a new one. The value must be stored under the `pipeline-id`. |
 | datadog.site | string | `"datadoghq.com"` | The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to. |
 | datadog.url | string | `""` | The full [URL](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to (e.g. https://api.datadoghq.com). This overrides the site setting. |
 | dnsConfig | object | `{}` | Specify the [dnsConfig](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config). |
