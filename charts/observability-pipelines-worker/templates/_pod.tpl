@@ -47,19 +47,27 @@ containers:
           secretKeyRef:
             name: {{ template "opw.apiSecretName" . }}
             key: api-key
-      - name: DD_OP_CONFIG_KEY
+      - name: DD_OP_PIPELINE_ID
+        {{- with .Values.datadog.pipelineId }}
+        value: {{ . | quote }}
+        {{- else }}
         valueFrom:
           secretKeyRef:
             name: {{ template "opw.configKeySecretName" . }}
             key: config-key
-      - name: DD_OP_PIPELINE_ID
-        value: {{ .Values.datadog.pipelineId | quote }}
+        {{- end }}
+      {{- with .Values.datadog.site }}
       - name: DD_SITE
-        value: {{ .Values.datadog.site | quote }}
+        value: {{ . | quote }}
+      {{- end }}
+      {{- with .Values.datadog.url }}
       - name: DD_URL
-        value: {{ .Values.datadog.url | quote }}
+        value: {{ . | quote }}
+      {{- end }}
+      {{- with .Values.datadog.dataDir }}
       - name: DD_OP_DATA_DIR
-        value: {{ .Values.datadog.dataDir | quote }}
+        value: {{ . | quote }}
+      {{- end }}
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 6 }}
 {{- end }}

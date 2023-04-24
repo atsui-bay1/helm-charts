@@ -92,8 +92,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | containerPorts | list | `[]` | Manually define ContainerPort array, overriding automated generation of ContainerPorts. |
 | datadog.apiKey | string | `nil` | Specify your Datadog API key. |
 | datadog.apiKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your API key instead of creating a new one. The value must be stored under the `api-key`. |
-| datadog.configKey | string | `nil` |  |
-| datadog.configKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your configuration key instead of creating a new one. The value must be stored under the `config-key`. |
+| datadog.configKey | string | `nil` | Specify your Datadog Configuration key. DEPRECATED. Use `datadog.pipelineId` instead. |
+| datadog.configKeyExistingSecret | string | `""` | Specify a preexisting Secret that has your configuration key instead of creating a new one. The value must be stored under the `config-key`. DEPRECATED. Use `datadog.pipelineId` instead. |
 | datadog.dataDir | string | `"/var/lib/observability-pipelines-worker"` | The data directory for OPW to store runtime data in. |
 | datadog.pipelineId | string | `nil` | Specify your Datadog Observability Pipelines pipeline ID |
 | datadog.site | string | `"datadoghq.com"` | The [site](https://docs.datadoghq.com/getting_started/site/) of the Datadog intake to send data to. |
