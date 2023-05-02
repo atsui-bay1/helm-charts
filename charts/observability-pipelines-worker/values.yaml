@@ -39,6 +39,8 @@ datadog:
   url: ""
   # datadog.dataDir -- The data directory for OPW to store runtime data in.
   dataDir: "/var/lib/observability-pipelines-worker"
+  # datadog.remoteConfigurationEnabled -- Whether to allow remote configuration of the worker from Datadog.
+  remoteConfigurationEnabled: false
 
 image:
   # image.name -- Specify the image name to use (relative to `image.repository`).

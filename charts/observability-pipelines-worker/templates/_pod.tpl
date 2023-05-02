@@ -68,6 +68,8 @@ containers:
       - name: DD_OP_DATA_DIR
         value: {{ . | quote }}
       {{- end }}
+      - name: DD_OP_REMOTE_CONFIGURATION_ENABLED
+        value: {{ .Values.datadog.remoteConfigurationEnabled | quote }}
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 6 }}
 {{- end }}
