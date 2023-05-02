@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 3.29.0
+
+* Add `datadog.securityAgent.compliance.xccdf.enabled` parameter to enable XCCDF feature in CSPM.
+
 # 3.28.0
 
 * Adding support to use a FIPS compliant side car container in the Datadog Cluster Agent, the Datadog Agent, and the Datadog Cluster Check Runners pods.
