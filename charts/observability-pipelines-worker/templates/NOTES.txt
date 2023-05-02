@@ -22,7 +22,7 @@ Then run:
         --set datadog.apiKey=YOUR-KEY-HERE datadog/observability-pipelines-worker
 {{- end }}
 
-{{- if or .Values.datadog.configKeyExistingSecret .Values.datadog.configKey }}
+{{- if or .Values.datadog.configKeyExistingSecret .Values.datadog.configKey .Values.datadog.pipelineId }}
   {{- if .Values.datadog.configKeyExistingSecret }}
 You disabled the creation of a Secret containing the API key, therefore you need to
 create a Secret named '{{ .Values.datadog.configKeyExistingSecret }}', which includes a key called 'config-key' containing the configuration key.
@@ -31,20 +31,20 @@ create a Secret named '{{ .Values.datadog.configKeyExistingSecret }}', which inc
 {{- else }}
 
 ##############################################################################
-####               ERROR: You did not set a datadog.configKey.            ####
+####               ERROR: You did not set a datadog.pipelineId.            ####
 ##############################################################################
 
-This deployment will be incomplete until you get your configuration key from Datadog.
+This deployment will be incomplete until you get your pipeline ID from Datadog.
 Sign up for a free Datadog trial at https://app.datadoghq.com/signup
 
-Once registered, you can create a configuration key at:
+Once registered, you can create a pipeline at:
 
     https://app.datadoghq.com/observability-pipelines
 
 Then run:
 
     helm upgrade {{ .Release.Name }} \
-        --set datadog.configKey=YOUR-KEY-HERE datadog/observability-pipelines-worker
+        --set datadog.pipelineId=YOUR-PIPELINE-ID-HERE datadog/observability-pipelines-worker
 {{- end }}
 
 {{- if or .Values.datadog.configKey .Values.datadog.configKeyExistingSecret }}
