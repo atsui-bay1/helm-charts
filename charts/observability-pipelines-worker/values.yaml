@@ -131,8 +131,6 @@ command: []
 # args -- Override default image arguments.
 args:
   - run
-  - --pipeline-config
-  - "/etc/observability-pipelines-worker/pipeline.yaml"
 
 # env -- Define environment variables.
 env: []
