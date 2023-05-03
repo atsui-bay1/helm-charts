@@ -48,9 +48,9 @@ containers:
             name: {{ template "opw.apiSecretName" . }}
             key: api-key
       - name: DD_OP_PIPELINE_ID
-        {{- with .Values.datadog.pipelineId }}
+      {{- with .Values.datadog.pipelineId }}
         value: {{ . | quote }}
-        {{- else }}
+      {{- else }}
         valueFrom:
           secretKeyRef:
             name: {{ template "opw.configKeySecretName" . }}

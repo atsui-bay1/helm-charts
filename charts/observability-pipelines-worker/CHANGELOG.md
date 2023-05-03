@@ -1,6 +1,6 @@
 # Changelog
 
-# 1.2.0
+# 1.2.0-rc.0
 
 * Update `run` subcommand to use new `--pipeline-config` argument
 * Rename `config` to `pipelineConfig` in values
