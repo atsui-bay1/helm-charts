@@ -1,5 +1,29 @@
 # Datadog changelog
 
+## 3.28.1
+
+* Add `memfd_create` syscall to seccomp profile for system-probe.
+
+## 3.28.0
+
+* Adding support to use a FIPS compliant side car container in the Datadog Cluster Agent, the Datadog Agent, and the Datadog Cluster Check Runners pods.
+
+## 3.27.0
+
+* Default `Agent` and `Cluster-Agent` to `7.44.0` version.
+
+## 3.26.2
+
+* Adds statx syscall to seccomp for system-probe
+
+## 3.26.1
+
+* Add support for `topologySpreadConstraints` in pod templates
+
+## 3.26.0
+
+* Default `Agent` and `Cluster-Agent` to `7.43.2` version.
+
 ## 3.25.5
 
 * Adds securityContext and resource annotations for initContainers in cluster agent
