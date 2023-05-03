@@ -31,7 +31,7 @@ create a Secret named '{{ .Values.datadog.configKeyExistingSecret }}', which inc
 {{- else }}
 
 ##############################################################################
-####               ERROR: You did not set a datadog.pipelineId.            ####
+####              ERROR: You did not set a datadog.pipelineId.            ####
 ##############################################################################
 
 This deployment will be incomplete until you get your pipeline ID from Datadog.
