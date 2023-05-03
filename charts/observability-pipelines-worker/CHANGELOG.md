@@ -2,11 +2,9 @@
 
 # 1.2.0-rc.0
 
-* Update `run` subcommand to use new `--pipeline-config` argument
 * Rename `config` to `pipelineConfig` in values
 * Add `datadog.pipelineId` value to replace `datadog.configKey`. `configKey` is still supported for backwards compatability.
-* Add new `datadog.url` and `datadog.dataDir` values
-* `1.2.0` release
+* Add new `datadog.remoteConfigurationEnabled` and `datadog.dataDir` values
 
 ## 1.1.1
 
