@@ -1,0 +1,5 @@
+args:
+  - run
+  - --skip-key-validation
+datadog:
+  remoteConfigurationEnabled: true
