@@ -51,7 +51,6 @@ organization. This Secret is used in the manifest to deploy the Observability Pi
 export DATADOG_SECRET_NAME=datadog-secrets
 kubectl create secret generic $DATADOG_SECRET_NAME \
     --from-literal api-key="<DD_API_KEY>" \
-    --from-literal pipeline-id="<DD_OP_PIPELINE_ID>"
 ```
 
 **Note**: This creates a Secret in the **default** Namespace. If you are using a custom Namespace, update the Namespace
